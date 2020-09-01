@@ -1,0 +1,5 @@
+FROM openjdk:8-jdk-alpine
+
+ADD build/libs/connessioni.jar connessioni.jar
+
+ENTRYPOINT ["java", "-Xmx128m", "-Xms64m", "-jar", "connessioni.jar"]

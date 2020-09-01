@@ -1,0 +1,48 @@
+version: '3'
+services:
+  ricette:
+    container_name: ricette
+    image: ricette
+    build:
+      dockerfile: ricette.df
+      context: ./ricette
+    depends_on:
+      - ricetteDB
+      - consul
+  ricetteDB:
+    image: postgres
+    container_name: ricetteDB
+    ports:
+      - "5430:5432"
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=ricette
+    volumes:
+      - "./ricetteDB:/var/lib/postgresql/data"
+  connessioni:
+    container_name: connessioni
+    image: connessioni
+    build:
+      dockerfile: connessioni.df
+      context: ./connessioni
+    depends_on:
+      - connessioniDB
+      - consul
+  connessioniDB:
+    image: postgres
+    container_name: connessioniDB
+    ports:
+      - "5431:5432"
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=connessioni
+    volumes:
+      - "./connessioniDB:/var/lib/postgresql/data"
+  consul:
+    image: consul
+    ports:
+      - "8501:8500"
+    container_name: consul
+ 
