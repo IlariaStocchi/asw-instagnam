@@ -1,1 +1,0 @@
--- serve solo per tenere la cartella (il resto dei file del db saranno ignorati dal gitignore)
