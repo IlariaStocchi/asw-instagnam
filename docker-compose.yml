@@ -40,9 +40,9 @@ services:
       - POSTGRES_DB=connessioni
     volumes:
       - "./connessioniDB:/var/lib/postgresql/data"
-  api-gateway:
-    container_name: api-gateway
-    image: api-gateway
+  apigateway:
+    container_name: apigateway
+    image: apigateway
     build:
       dockerfile: api-gateway.df
       context: ./api-gateway
@@ -50,6 +50,16 @@ services:
       - "8080:8080"
     depends_on:
       - consul
+  ricette-seguite:
+    container_name: ricette-seguite
+    image: ricette-seguite
+    build:
+      dockerfile: ricette-seguite.df
+      context: ./ricette-seguite
+    depends_on:
+      - consul
+      - ricette
+      - connessioni
   consul:
     image: consul
     ports:

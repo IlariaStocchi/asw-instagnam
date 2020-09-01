@@ -1,0 +1,5 @@
+FROM openjdk:8-jdk-alpine
+
+ADD build/libs/ricette-seguite.jar ricette-seguite.jar
+
+ENTRYPOINT ["java", "-Xmx128m", "-Xms64m", "-jar", "ricette-seguite.jar"]
