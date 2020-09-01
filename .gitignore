@@ -12,9 +12,12 @@ local.properties
 .recommenders
 
 ### Directory DB ###
-ricetteDB/
-connessioniDB/
-ricette-seguiteDB/
+ricetteDB/*
+!ricetteDB/.gitkeep 
+connessioniDB/*
+!connessioniDB/.gitkeep
+ricette-seguiteDB/*
+!ricette-seguiteDB/.gitkeep
 
 # External tool builders
 .externalToolBuilders/
