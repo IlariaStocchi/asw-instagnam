@@ -1,0 +1,5 @@
+FROM openjdk:8-jdk-alpine
+
+ADD build/libs/api-gateway.jar api-gateway.jar
+
+ENTRYPOINT ["java", "-Xmx128m", "-Xms64m", "-jar", "api-gateway.jar"]
