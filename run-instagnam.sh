@@ -1,13 +1,7 @@
 #!/bin/bash
 
-# Script per avviare l'applicazione Instagnam 
+mkdir -p connessioniDB
+mkdir -p ricetteDB
+mkdir -p ricette-seguiteDB
 
-echo Running INSTAGNAM 
-
-# Consul deve essere avviato separatamente 
-
-java -Xms64m -Xmx128m -jar ricette/build/libs/ricette.jar &
-java -Xms64m -Xmx128m -jar connessioni/build/libs/connessioni.jar &
-java -Xms64m -Xmx128m -jar ricette-seguite/build/libs/ricette-seguite.jar &
-
-java -Xms64m -Xmx128m -jar api-gateway/build/libs/api-gateway.jar &
+sudo docker-compose up --build
