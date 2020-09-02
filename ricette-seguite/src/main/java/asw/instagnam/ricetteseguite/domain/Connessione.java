@@ -2,7 +2,7 @@ package asw.instagnam.ricetteseguite.domain;
 
 import lombok.*; 
 
-@Data @NoArgsConstructor
+@Data @NoArgsConstructor @AllArgsConstructor
 public class Connessione {
 
 	private Long id; 

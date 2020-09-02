@@ -3,7 +3,7 @@ package asw.instagnam.ricetteseguite.domain;
 import lombok.*; 
 
 /* Ricetta (in formato breve). */ 
-@Data @NoArgsConstructor
+@Data @NoArgsConstructor @AllArgsConstructor
 public class Ricetta {
 
 	private Long id; 

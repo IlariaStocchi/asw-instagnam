@@ -27,6 +27,18 @@ spring:
     url: jdbc:postgresql://ricetteDB:5432/ricette
     username: postgres
     password: postgres
+  kafka:
+    bootstrap-servers: ${DOCKER_HOST_IP:10.11.1.121}:9092
+    consumer:
+      group-id: ${spring.application.name}
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: "*"
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
 
 server: 
   port: ${PORT:${SERVER_PORT:0}}

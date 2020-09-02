@@ -26,6 +26,11 @@ dependencies {
     implementation ("io.springfox:springfox-swagger-ui:${swaggerVersion}"){
         exclude group: "org.springframework"
     }
+    
+    implementation project(":instagnam-common-api-event")
+    implementation project(":ricette-service-api-event")
+    implementation project(":connessioni-service-api-event")
+    implementation 'org.springframework.kafka:spring-kafka'
 
 }
 
