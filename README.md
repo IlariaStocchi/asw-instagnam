@@ -49,15 +49,12 @@ per trovare le ricette seguite dall'utente U, è basata su invocazioni remote RE
 
 Per eseguire questo progetto: 
 
-* avviare *Consul* eseguendo lo script `start-consul.sh` 
+* prima del primo avvio, o ad ogni nuova build, eseguire lo script `build-instagnam.sh` 
 
-* per avviare l'applicazione *Instagnam*, eseguire lo script `run-instagnam.sh` 
+* avviare l'applicazione eseguendo lo script `run-instagnam.sh` 
 
-Alla fine, l'applicazione può essere arrestata usando lo script `stop-java-processes.sh` (**da usare con cautela!**). 
-
-Inoltre, *Consul* può essere arrestato con lo script `stop-consul.sh`. 
-
-
+* terminare l'applicazione eseguendo lo script `stop-instagnam.sh` 
+ 
 ## Descrizione delle attività da svolgere 
 
 Si veda il sito web del corso di [Architettura dei sistemi software](http://cabibbo.dia.uniroma3.it/asw/).
