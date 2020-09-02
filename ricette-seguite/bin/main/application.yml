@@ -18,19 +18,27 @@ spring:
         queryPassing: true 
     loadbalancer: 
       ribbon.enabled: false
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+  datasource:
+    url: jdbc:postgresql://ricette-seguiteDB:5432/ricette-seguite
+    username: postgres
+    password: postgres
   kafka:
-    bootstrap-servers: ${DOCKER_HOST_IP:10.11.1.121}:9092
+    bootstrap-servers: kafka:9092
     consumer:
+      bootstrap-servers: kafka:9092
       group-id: ${spring.application.name}
       auto-offset-reset: earliest
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
       properties:
-        spring:
-          json:
-            trusted:
-              packages: "*"
+        spring.json.trusted.packages: "*"
     producer:
+      bootstrap-servers: kafka:9092
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
 

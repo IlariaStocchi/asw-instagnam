@@ -18,6 +18,15 @@ spring:
         queryPassing: true 
     loadbalancer: 
       ribbon.enabled: false
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+  datasource:
+    url: jdbc:postgresql://ricette-seguiteDB:5432/ricette-seguite
+    username: postgres
+    password: postgres
   kafka:
     bootstrap-servers: kafka:9092
     consumer:

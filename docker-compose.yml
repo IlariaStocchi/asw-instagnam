@@ -54,6 +54,17 @@ services:
       - "8080:8080"
     depends_on:
       - consul
+  ricette-seguiteDB:
+    image: postgres
+    container_name: ricette-seguiteDB
+    ports:
+      - "5433:5432"
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=ricette-seguite
+    volumes:
+      - "./ricette-seguiteDB:/var/lib/postgresql/data"
   ricette-seguite:
     container_name: ricette-seguite
     image: ricette-seguite
@@ -63,6 +74,7 @@ services:
     depends_on:
       - consul
       - ricette
+      - ricette-seguiteDB
       - connessioni
       - kafka
       - zookeeper
